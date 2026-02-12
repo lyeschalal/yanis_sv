@@ -5,11 +5,16 @@ function App() {
   const [yesClicked, setYesClicked] = useState(false)
   const [noCount, setNoCount] = useState(0)
   const [noPosition, setNoPosition] = useState({ x: 0, y: 0 })
-
+  const positions_move = [
+  { x: -20, y: 20 },
+  { x: 30, y: 0 },
+  { x: 20, y: -40 },
+  { x: 30, y: 60 }
+]
   const avatarData = [
     { image: 'sad man.png', text: 'Are you sure' },
     { image: 'man in glasses crying.png', text: 'Really !!' },
-    { image: 'Frame 4.png', text: 'Think again' },
+    { image: 'man shrugging.png', text: 'Think again' },
     { image: 'Frame 7.png', text: 'Last chance' }
   ]
 
@@ -18,10 +23,19 @@ function App() {
     const randomY = (Math.random() - 0.5) * 60
     return { x: randomX, y: randomY }
   }
-
+  
   const handleNoClick = () => {
     if (noCount < 4) {
-      const newPos = getRandomPosition()
+      // const newPos = getRandomPosition()
+      // console.log('New position:', newPos)
+      // recuperer la position actuelle du bouton No
+      const currentPos = noPosition 
+      // ajouter un mouvement aléatoire à la position actuelle
+      let move = positions_move[noCount]
+
+      console.log(noCount, positions_move[0])
+      
+      const newPos = { x: currentPos.x + move.x, y: currentPos.y + move.y }
       setNoPosition(newPos)
       setNoCount(noCount + 1)
     }

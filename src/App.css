@@ -35,9 +35,9 @@ body {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   text-align: center;
   width: 100%;
-  max-width: 380px;
+  max-width: 340px;
   position: relative;
-  height: 520px;
+  height: 370px;
   display: flex;
   flex-direction: column;
 }
@@ -124,8 +124,8 @@ body {
 /* Avatars en bas du container */
 .avatar-container {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: 0px;
+  right: 0px;
   text-align: center;
   animation: popUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   z-index: 5;
