@@ -14,8 +14,8 @@ function App() {
   ]
 
   const getRandomPosition = () => {
-    const randomX = (Math.random() - 0.5) * 200
-    const randomY = (Math.random() - 0.5) * 150
+    const randomX = (Math.random() - 0.5) * 80
+    const randomY = (Math.random() - 0.5) * 60
     return { x: randomX, y: randomY }
   }
 
@@ -73,7 +73,7 @@ function App() {
         </div>
 
         {noCount > 0 && (
-          <div className={`avatar avatar-show`}>
+          <div className={`avatar-container`}>
             <img
               src={`/yanis_sv/${avatarData[noCount - 1].image}`}
               alt="avatar"
@@ -83,12 +83,6 @@ function App() {
           </div>
         )}
       </div>
-
-      {noCount === 4 && (
-        <div className="final-message">
-          <p>No button is gone! Say YES now! 😄</p>
-        </div>
-      )}
     </div>
   )
 }
