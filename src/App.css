@@ -37,6 +37,9 @@ body {
   width: 100%;
   max-width: 380px;
   position: relative;
+  height: 520px;
+  display: flex;
+  flex-direction: column;
 }
 
 .heart-emoji {
@@ -74,7 +77,7 @@ body {
   align-items: center;
   position: relative;
   min-height: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .btn {
@@ -120,13 +123,12 @@ body {
 
 /* Avatars en bas du container */
 .avatar-container {
-  position: relative;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
   text-align: center;
   animation: popUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   z-index: 5;
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid #f0f0f0;
 }
 
 @keyframes popUp {
@@ -156,6 +158,15 @@ body {
   color: #999;
   margin-top: 8px;
   white-space: nowrap;
+}
+
+/* Texte fixe en bas des boutons */
+.text-display {
+  font-size: 12px;
+  color: #999;
+  margin-top: 15px;
+  min-height: 20px;
+  text-align: center;
 }
 
 /* Success card */

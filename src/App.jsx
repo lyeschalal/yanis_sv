@@ -72,6 +72,10 @@ function App() {
           )}
         </div>
 
+        <div className="text-display">
+          {noCount > 0 && avatarData[noCount - 1].text}
+        </div>
+
         {noCount > 0 && (
           <div className={`avatar-container`}>
             <img
@@ -79,7 +83,6 @@ function App() {
               alt="avatar"
               className="avatar-image"
             />
-            <p className="avatar-text">{avatarData[noCount - 1].text}</p>
           </div>
         )}
       </div>
