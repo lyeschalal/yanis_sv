@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+html, body, #root {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #ffc0cb 0%, #ffb3d9 100%);
@@ -15,6 +20,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  width: 100%;
   padding: 20px;
 }
 
@@ -61,6 +67,7 @@ body {
   justify-content: center;
   margin-bottom: 30px;
   position: relative;
+  min-height: 60px;
 }
 
 .btn {
@@ -69,9 +76,10 @@ body {
   border: none;
   border-radius: 25px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   font-weight: bold;
   min-width: 100px;
+  position: relative;
 }
 
 .btn-yes {
@@ -91,72 +99,22 @@ body {
 .btn-no {
   background: #e0e0e0;
   color: #666;
-  position: relative;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .btn-no:hover {
   background: #d0d0d0;
 }
 
-/* Animations pour le bouton NO */
-.no-btn-0 {
-  animation: moveRight 0.5s ease-out;
-}
-
-.no-btn-1 {
-  animation: moveUp 0.5s ease-out;
-}
-
-.no-btn-2 {
-  animation: moveLeft 0.5s ease-out;
-}
-
-.no-btn-3 {
-  animation: moveDown 0.5s ease-out;
-}
-
-@keyframes moveRight {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(100px) rotate(10deg);
-  }
-}
-
-@keyframes moveUp {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-100px) rotate(-10deg);
-  }
-}
-
-@keyframes moveLeft {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100px) rotate(15deg);
-  }
-}
-
-@keyframes moveDown {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(100px) rotate(-15deg);
-  }
-}
-
 /* Avatars */
 .avatar {
   position: absolute;
-  bottom: -80px;
+  bottom: -100px;
   right: 20px;
-  font-size: 50px;
+  text-align: center;
   animation: popUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
@@ -174,25 +132,15 @@ body {
   }
 }
 
-.avatar-1 {
-  right: 40px;
+.avatar-show {
+  animation: popUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-.avatar-2 {
-  right: 20px;
-}
-
-.avatar-3 {
-  right: 0;
-}
-
-.avatar-4 {
-  right: -20px;
-}
-
-.avatar-emoji {
+.avatar-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
   display: block;
-  line-height: 1;
 }
 
 .avatar-text {
@@ -319,29 +267,5 @@ body {
     padding: 10px 20px;
     font-size: 14px;
     min-width: 80px;
-  }
-
-  @keyframes moveRight {
-    100% {
-      transform: translateX(60px) rotate(10deg);
-    }
-  }
-
-  @keyframes moveUp {
-    100% {
-      transform: translateY(-60px) rotate(-10deg);
-    }
-  }
-
-  @keyframes moveLeft {
-    100% {
-      transform: translateX(-60px) rotate(15deg);
-    }
-  }
-
-  @keyframes moveDown {
-    100% {
-      transform: translateY(60px) rotate(-15deg);
-    }
   }
 }

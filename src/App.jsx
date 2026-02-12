@@ -4,16 +4,25 @@ import './App.css'
 function App() {
   const [yesClicked, setYesClicked] = useState(false)
   const [noCount, setNoCount] = useState(0)
+  const [noPosition, setNoPosition] = useState({ x: 0, y: 0 })
 
-  const avatars = [
-    { emoji: '🤔', text: 'Are you sure' },
-    { emoji: '😭', text: 'Really !!' },
-    { emoji: '😢', text: 'Think again' },
-    { emoji: '🐕', text: 'Last chance' }
+  const avatarData = [
+    { image: 'sad man.png', text: 'Are you sure' },
+    { image: 'man in glasses crying.png', text: 'Really !!' },
+    { image: 'Frame 4.png', text: 'Think again' },
+    { image: 'Frame 7.png', text: 'Last chance' }
   ]
+
+  const getRandomPosition = () => {
+    const randomX = (Math.random() - 0.5) * 200
+    const randomY = (Math.random() - 0.5) * 150
+    return { x: randomX, y: randomY }
+  }
 
   const handleNoClick = () => {
     if (noCount < 4) {
+      const newPos = getRandomPosition()
+      setNoPosition(newPos)
       setNoCount(noCount + 1)
     }
   }
@@ -52,8 +61,11 @@ function App() {
 
           {noCount < 4 && (
             <button
-              className={`btn btn-no no-btn-${noCount}`}
+              className="btn btn-no"
               onClick={handleNoClick}
+              style={{
+                transform: `translate(${noPosition.x}px, ${noPosition.y}px)`
+              }}
             >
               No
             </button>
@@ -61,9 +73,13 @@ function App() {
         </div>
 
         {noCount > 0 && (
-          <div className={`avatar avatar-${noCount}`}>
-            <span className="avatar-emoji">{avatars[noCount - 1].emoji}</span>
-            <p className="avatar-text">{avatars[noCount - 1].text}</p>
+          <div className={`avatar avatar-show`}>
+            <img
+              src={`/yanis_sv/${avatarData[noCount - 1].image}`}
+              alt="avatar"
+              className="avatar-image"
+            />
+            <p className="avatar-text">{avatarData[noCount - 1].text}</p>
           </div>
         )}
       </div>
