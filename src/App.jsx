@@ -12,10 +12,10 @@ function App() {
   { x: 30, y: 60 }
 ]
   const avatarData = [
-    { image: 'sad man.png', text: 'Are you sure' },
-    { image: 'man in glasses crying.png', text: 'Really !!' },
-    { image: 'man shrugging.png', text: 'Think again' },
-    { image: 'Frame 7.png', text: 'Last chance' }
+    { image: 'img1.png', text: 'Are you sure' },
+    { image: 'img2.png', text: 'Really !!' },
+    { image: 'img3.png', text: 'Think again' },
+    { image: 'img4.png', text: 'Last chance' }
   ]
 
   const getRandomPosition = () => {

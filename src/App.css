@@ -40,6 +40,7 @@ body {
   height: 370px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .heart-emoji {
@@ -129,6 +130,8 @@ body {
   text-align: center;
   animation: popUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   z-index: 5;
+  overflow: hidden;
+
 }
 
 @keyframes popUp {
@@ -150,7 +153,7 @@ body {
   height: 80px;
   object-fit: contain;
   display: block;
-  margin: 0 auto;
+  margin: 0 0;
 }
 
 .avatar-text {
