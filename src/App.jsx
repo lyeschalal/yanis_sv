@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import * as Clarity from '@microsoft/react-native-clarity';
+
+Clarity.initialize('vgz3arsvy4', {
+  logLevel: Clarity.LogLevel.None, // Note: Use "LogLevel.Verbose" value while testing to debug initialization issues.
+});
 
 function App() {
   const [yesClicked, setYesClicked] = useState(false)
@@ -44,7 +49,7 @@ const delai = [
 
 
   const letterContent = `
-Ma  chère Afaf,
+Ma chère Afaf,
 
      Je voulais prendre un petit moment pour te dire que je suis vraiment content de t’avoir dans ma vie. Depuis qu’on se connaît, il y a plein de moments simples mais importants pour moi : des discussions, des rires, et juste le fait de passer du temps ensemble. Tu es trop importante pour moi et tu es la meilleure.
 
@@ -180,7 +185,7 @@ Ton nisou préféré.,`
             </div>
           </div>
           <h1>Yay! You said YES!</h1>
-          <p>touch the envelope and read my words!</p>
+          <p>Touch the envelope and read my words!</p>
           <div className="celebration">
           </div>
         </div>
