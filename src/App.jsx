@@ -164,7 +164,7 @@ Ma très chère Afaf,
         <div className="letter">
           <pre className="letter-text">
             {displayedText}
-            {displayedText.length < letterContent.length && <span className="cursor">|</span>}
+            {displayedText.length < letterContent.length && <span className="cursor">🪶</span>}
           </pre>
         </div>
       </div>
