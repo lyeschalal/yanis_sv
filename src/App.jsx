@@ -12,17 +12,17 @@ function App() {
   const [noPosition, setNoPosition] = useState({ x: 0, y: 0 })
   
   const positions_move = [
-    { x: -20, y: 20 },
-    { x: 30, y: 0 },
-    { x: 20, y: -40 },
+    { x: 60, y: 0 },
+    { x: -20, y: 40 },
+    { x: -180, y: 40 },
     { x: 30, y: 60 }
   ]
   
   const avatarData = [
-    { image: 'https://i.pinimg.com/originals/09/bf/2f/09bf2f1a849c2003677a5e56ac408f45.gif', text: 'Are you sure' },
-    { image: 'https://media.tenor.com/tqM1osvFOQoAAAAM/crying.gif', text: 'Really !!' },
-    { image: 'https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyMXVzYjBrbjJteW9kdnAwZXZ1YXBjNjl4bG9lMDZ4MnUxd3NkcXByMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XgB1iZOFFkUXbOhNXt/200w.gif', text: 'Think again' },
-    { image: 'https://i.pinimg.com/originals/09/bf/2f/09bf2f1a849c2003677a5e56ac408f45.gif', text: 'Last chance' }
+    { image: 'https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyMXVzYjBrbjJteW9kdnAwZXZ1YXBjNjl4bG9lMDZ4MnUxd3NkcXByMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XgB1iZOFFkUXbOhNXt/200w.gif', text: 'Are you sure' },
+    { image: 'https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyMnB6YTZpNWR6MzA4ZWhyamQzZTgyejhoMmloODJmd2JvaWtscm9xcSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XD4qHZpkyUFfq/giphy.gif', text: 'Really !!' },
+    { image: 'https://media.tenor.com/tqM1osvFOQoAAAAM/crying.gif', text: 'Think again' },
+    { image: 'https://media1.tenor.com/m/73WoNZZmig8AAAAd/emmanuel-macron.gif', text: 'Last chance' }
   ]
 // const delai = [
 //   0, 1.8, 4.7,
@@ -44,19 +44,16 @@ const delai = [
 
 
   const letterContent = `
-Ma très chère Afaf,
+Ma  chère Afaf,
 
-     Je prends la plume ce soir pour te dire des choses qui me brûlent le cœur depuis longtemps. Chaque moment passé avec toi est un trésor que je garde précieusement.
+     Je voulais prendre un petit moment pour te dire que je suis vraiment content de t’avoir dans ma vie. Depuis qu’on se connaît, il y a plein de moments simples mais importants pour moi : des discussions, des rires, et juste le fait de passer du temps ensemble. Tu es trop importante pour moi et tu es la meilleure.
 
-     Ta beauté, ta gentillesse et ta lumière illuminent mes jours les plus sombres. Quand tu souris, le monde s'arrête et il n'existe que ce moment magique entre nous.
+Tu apportes quelque chose de positif dans mes journées, et ça me fait toujours plaisir de te voir ou de parler avec toi. J’espère qu’on continuera à partager encore beaucoup de moments comme ça, tranquillement, à notre façon, et qu’on pourra construire ensemble un new chapter, a new beginning.
 
-     Je veux construire mille souvenirs avec toi, rire ensemble jusqu'aux larmes, et affronter chaque défi main dans la main. Tu es bien plus qu'une simple personne pour moi, tu es mon rêve devenu réalité.
+Ça me fait vraiment plaisir de t’avoir à mes côtés 🤍
 
-     Merci de m'avoir dit oui. Tu viens de rendre l'homme le plus heureux du monde.
-
-     Avec tout mon amour et ma tendresse,
-
-                                        ❤️`
+Ma chère Afaf que j’aime,  
+Ton nisou préféré.,`
 
   // Effet de typing
   useEffect(() => {
@@ -78,26 +75,14 @@ Ma très chère Afaf,
     return () => clearInterval(typeInterval)
   }, [showLetter])
 
-  // // Délai de 2 secondes après Yes
-  // useEffect(() => {
-  //   if (yesClicked) {
-  //     const timer = setTimeout(() => {
-  //       setShowLetter(true)
-  //     }, 100000)
-  //     return () => clearTimeout(timer)
-  //   }
-  // }, [yesClicked])
+
 
   const getRandomPosition = () => {
     const randomX = (Math.random() - 0.5) * 80
     const randomY = (Math.random() - 0.5) * 60
     return { x: randomX, y: randomY }
   }
-//   const heartsData = Array.from({ length: 30 }, () => ({
-//   left: Math.random() * 100,
-//   delay: Math.random() * 5,
-//   duration:20 + Math.random() * 20
-// }))
+
 
 
   const handleNoClick = () => {
@@ -118,17 +103,18 @@ Ma très chère Afaf,
     // Animer le zoom de l'enveloppe sur place
     let zoom = 1
     const zoomInterval = setInterval(() => {
-      zoom += 0.03
+      zoom += 0.05
       setEnvelopeZoom(zoom)
       if (zoom >= 7) {
         clearInterval(zoomInterval)
-        // Une fois zoomé, afficher la lettre et les cœurs
-        setTimeout(() => {
-          setShowHearts(true)
-          setShowLetter(true)
-        }, 100)
       }
-    }, 10)
+    }, 1)
+    
+    // Afficher la lettre et les cœurs pendant que l'enveloppe se fane
+    setTimeout(() => {
+      setShowHearts(true)
+      setShowLetter(true)
+    }, 600)
   }
 
   if (showLetter) {
@@ -178,13 +164,14 @@ Ma très chère Afaf,
           <div className="heart-animation" onClick={handleEnvelopeClick}>
             <div
               style={{
-                width: '120px',
-                height: '120px',
+                width: 'auto',
+                height: '150px',
                 margin: '0 auto',
                 cursor: 'pointer',
                 transform: `scale(${envelopeZoom})`,
                 transformOrigin: 'center',
-                transition: 'transform 0.04s linear'
+                transition: 'transform 0.04s linear, opacity 0.04s linear',
+                opacity: Math.max(0, 1 - (envelopeZoom - 1) / 6)
               }}
             >
               <img src="/yanis_sv/envelope.png" alt="envelope" 
@@ -227,17 +214,18 @@ Ma très chère Afaf,
           )}
         </div>
 
-        <div className="text-display">
-          {noCount > 0 && avatarData[noCount - 1].text}
-        </div>
+        
 
         {noCount > 0 && (
-          <div className={`avatar-container`}>
+          <div className={`avatar-container avatar-${noCount}`}>
             <img
               src={`${avatarData[noCount - 1].image}`}
               alt="avatar"
               className="avatar-image"
             />
+            <div className="avatar-text">
+              {avatarData[noCount - 1].text}
+            </div>
           </div>
         )}
       </div>

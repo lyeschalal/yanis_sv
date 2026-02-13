@@ -137,13 +137,34 @@ body {
 /* Avatars en bas du container */
 .avatar-container {
   position: absolute;
-  bottom: 0px;
-  right: 0px;
   text-align: center;
-  animation: popUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   z-index: 5;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.avatar-1 {
+  bottom: 50px;
+  left: 180px;
+  gap: 10px;
+}
+
+.avatar-2 {
+  bottom: -0px;
+  right: 225px;
+}
+
+.avatar-3 {
+  bottom: 50px;
+  left: 240px;
+
+}
+
+.avatar-4 {
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 @keyframes popUp {
@@ -166,12 +187,13 @@ body {
   object-fit: contain;
   display: block;
   margin: 0 0;
+  padding:  0;
 }
 
 .avatar-text {
   font-size: 12px;
   color: #999;
-  margin-top: 8px;
+
   white-space: nowrap;
 }
 
@@ -194,7 +216,7 @@ body {
   width: 100%;
   max-width: 380px;
   animation: slideIn 0.6s ease-out;
-  margin-top: 80px;
+  margin: 0 auto;
 }
 
 @keyframes slideIn {
@@ -303,13 +325,13 @@ body {
   width: 100%;
   position: relative;
   animation: slideIn 0.6s ease-out;
+  margin: 0 auto;
 }
 
 .letter-text {
   font-family: "Dancing Script", cursive;
-  
+  font-size: 16px;
 
-  font-size: 15px;
   line-height: 1.8;
   color: #333;
   white-space: pre-wrap;
