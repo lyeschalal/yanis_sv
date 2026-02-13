@@ -5,6 +5,9 @@ function App() {
   const [yesClicked, setYesClicked] = useState(false)
   const [showLetter, setShowLetter] = useState(false)
   const [displayedText, setDisplayedText] = useState('')
+  const [envelopeClicked, setEnvelopeClicked] = useState(false)
+  const [envelopeZoom, setEnvelopeZoom] = useState(1)
+  const [showHearts, setShowHearts] = useState(false)
   const [noCount, setNoCount] = useState(0)
   const [noPosition, setNoPosition] = useState({ x: 0, y: 0 })
   
@@ -62,7 +65,7 @@ Ma très chère Afaf,
     if (yesClicked) {
       const timer = setTimeout(() => {
         setShowLetter(true)
-      }, 2000)
+      }, 100000)
       return () => clearTimeout(timer)
     }
   }, [yesClicked])
@@ -87,9 +90,43 @@ Ma très chère Afaf,
     setYesClicked(true)
   }
 
-  if (yesClicked && showLetter) {
+  const handleEnvelopeClick = () => {
+    // Animer le zoom de l'enveloppe sur place
+    let zoom = 1
+    const zoomInterval = setInterval(() => {
+      zoom += 0.03
+      setEnvelopeZoom(zoom)
+      if (zoom >= 7) {
+        clearInterval(zoomInterval)
+        // Une fois zoomé, afficher la lettre et les cœurs
+        setTimeout(() => {
+          setShowHearts(true)
+          setShowLetter(true)
+        }, 100)
+      }
+    }, 10)
+  }
+
+  if (showLetter) {
     return (
       <div className="letter-container">
+        {showHearts && (
+          <div className="hearts-container">
+            {Array.from({ length: 10 }).map((_, i) => (
+              <div 
+                key={i}
+                className="falling-heart"
+                style={{
+                  left: Math.random() * 100 + '%',
+                  animationDelay: i * 0.3 + 's',
+                  animationDuration: (10 + Math.random() * 4) + 's'
+                }}
+              >
+                <img src={`/yanis_sv/coeur-0${(i % 4) + 1}.png`} alt="heart" />
+              </div>
+            ))}
+          </div>
+        )}
         <div className="letter">
           <pre className="letter-text">
             {displayedText}
@@ -104,13 +141,26 @@ Ma très chère Afaf,
     return (
       <div className="valentine-container">
         <div className="success-card">
-          <div className="heart-animation">💖</div>
-          <h1>Yay! You said YES! 💕</h1>
+          <div className="heart-animation" onClick={handleEnvelopeClick}>
+            <div
+              style={{
+                width: '120px',
+                height: '120px',
+                margin: '0 auto',
+                cursor: 'pointer',
+                transform: `scale(${envelopeZoom})`,
+                transformOrigin: 'center',
+                transition: 'transform 0.04s linear'
+              }}
+            >
+              <img src="/yanis_sv/envelope.png" alt="envelope" 
+              style={{ width: '100%', height: '100%' }}
+               />
+            </div>
+          </div>
+          <h1>Yay! You said YES!</h1>
           <p>I'm the happiest person right now!</p>
           <div className="celebration">
-            <span>🎉</span>
-            <span>🎊</span>
-            <span>🎉</span>
           </div>
         </div>
       </div>
@@ -120,7 +170,9 @@ Ma très chère Afaf,
   return (
     <div className="valentine-container">
       <div className="valentine-card">
-        <div className="heart-emoji">💖</div>
+        <div className="heart-emoji">
+          <img className="heart-image" src="public/heart.png" alt="heart" />
+        </div>
         <h1>Afaf will you be my valentine?</h1>
 
         <div className="buttons-container">

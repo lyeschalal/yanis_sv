@@ -11,11 +11,24 @@ html, body, #root {
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #ffc0cb 0%, #ffb3d9 100%);
+  /* background: linear-gradient(135deg, #ffc0cb 0%, #ffb3d9 100%); */
+  /* mette le background image */
+  background: url('../public/background.png') no-repeat center center fixed;
+  background-size: cover;
+ 
   min-height: 100vh;
   width: 100%;
   overflow-x: hidden;
 }
+
+.heart-image{
+  width: 70px;
+  height: 70px;
+}
+/* .envelope-image {
+  width: 90px;
+  height: 90px;
+} */
 
 .valentine-container {
   display: flex;
@@ -35,7 +48,7 @@ body {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   text-align: center;
   width: 100%;
-  max-width: 340px;
+  max-width: 90vw;
   position: relative;
   height: 370px;
   display: flex;
@@ -196,7 +209,7 @@ body {
   }
 }
 
-.heart-animation {
+/* .heart-animation {
   font-size: 80px;
   margin-bottom: 20px;
   animation: floatHeart 2s ease-in-out infinite;
@@ -209,7 +222,24 @@ body {
   50% {
     transform: translateY(-20px);
   }
+} */
+
+ .heart-animation {
+  font-size: 80px;
+  /* margin-bottom: 20px; */
+  animation: vibrateEnvelope 0.4s linear infinite;
+  display: inline-block;
 }
+
+@keyframes vibrateEnvelope {
+  0%   { transform: translateX(0) rotate(0deg); }
+  20%  { transform: translateX(-0px) rotate(-8deg); }
+  40%  { transform: translateX(0px) rotate(8deg); }
+  60%  { transform: translateX(-0px) rotate(-4deg); }
+  80%  { transform: translateX(0px) rotate(4deg); }
+  100% { transform: translateX(0) rotate(0deg); }
+}
+
 
 .success-card h1 {
   font-size: 28px;
@@ -298,6 +328,147 @@ body {
     opacity: 1;
   }
   50%, 99% {
+    opacity: 0;
+  }
+}
+
+/* Envelope zoom animation */
+.envelope-zoom {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background: url('/yanis_sv/envelope.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: zoomEnvelope 1.5s ease-in-out forwards;
+  z-index: 100;
+}
+
+@keyframes zoomEnvelope {
+  0% {
+    width: 300px;
+    height: 300px;
+    opacity: 1;
+  }
+  100% {
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+  }
+}
+
+/* Falling hearts */
+.falling-heart {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: fall 4s linear infinite;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.falling-heart-1 {
+  left: 10%;
+  background-image: url('/yanis_sv/coeur-01.png');
+  animation-delay: 0s;
+}
+
+.falling-heart-2 {
+  left: 25%;
+  background-image: url('/yanis_sv/coeur-02.png');
+  animation-delay: 0.5s;
+}
+
+.falling-heart-3 {
+  left: 40%;
+  background-image: url('/yanis_sv/coeur-03.png');
+  animation-delay: 1s;
+}
+
+.falling-heart-4 {
+  left: 55%;
+  background-image: url('/yanis_sv/coeur-04.png');
+  animation-delay: 1.5s;
+}
+
+.falling-heart-5 {
+  left: 70%;
+  background-image: url('/yanis_sv/coeur-01.png');
+  animation-delay: 2s;
+}
+
+@keyframes fall {
+  from {
+    top: -100px;
+    opacity: 1;
+  }
+  to {
+    top: 100vh;
+    opacity: 0;
+  }
+}
+
+/* Envelope zoom animation */
+.envelope-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.envelope-zoom {
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  transition: transform 0.05s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Cœurs qui tombent */
+.hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.falling-heart {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: -50px;
+  animation: falling 12s linear forwards;
+}
+
+.falling-heart img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@keyframes falling {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(50vh) translateX(30px) rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(0) rotate(360deg);
     opacity: 0;
   }
 }
