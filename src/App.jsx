@@ -12,7 +12,7 @@ function App() {
   const [noPosition, setNoPosition] = useState({ x: 0, y: 0 })
   
   const positions_move = [
-    { x: 60, y: 0 },
+    { x: 50, y: 0 },
     { x: -20, y: 40 },
     { x: -180, y: 40 },
     { x: 30, y: 60 }
@@ -180,7 +180,7 @@ Ton nisou préféré.,`
             </div>
           </div>
           <h1>Yay! You said YES!</h1>
-          <p>I'm the happiest person right now!</p>
+          <p>touch the envelope and read my words!</p>
           <div className="celebration">
           </div>
         </div>

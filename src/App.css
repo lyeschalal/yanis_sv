@@ -146,12 +146,12 @@ body {
 
 .avatar-1 {
   bottom: 50px;
-  left: 180px;
+  left: 160px;
   gap: 10px;
 }
 
 .avatar-2 {
-  bottom: -0px;
+  bottom: -20px;
   right: 225px;
 }
 
@@ -330,7 +330,7 @@ body {
 
 .letter-text {
   font-family: "Dancing Script", cursive;
-  font-size: 17px;
+  font-size: 18px;
 
   line-height: 1.8;
   color: #333;
