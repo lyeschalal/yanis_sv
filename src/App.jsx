@@ -24,6 +24,24 @@ function App() {
     { image: 'img3.png', text: 'Think again' },
     { image: 'img4.png', text: 'Last chance' }
   ]
+// const delai = [
+//   0, 1.8, 4.7,
+//   2.7, 2.7, 4.5,
+//   1.8, 3.2, 4.0,
+//   2, 3, 4.0,
+//   2.2, 3.6, 4.8,
+//   3, 4, 5
+// ]
+const delai = [
+  0, 0.6, 1.2,
+  0.3, 0.9, 1.5,
+  0.6, 1.2, 1.8,
+  0.9, 1.5, 2.1,
+  1.2, 1.8, 2.4,
+  1.5, 2.1, 2.7
+]
+
+
 
   const letterContent = `
 Ma très chère Afaf,
@@ -55,26 +73,32 @@ Ma très chère Afaf,
       } else {
         clearInterval(typeInterval)
       }
-    }, 90)
+    }, 150)
 
     return () => clearInterval(typeInterval)
   }, [showLetter])
 
-  // Délai de 2 secondes après Yes
-  useEffect(() => {
-    if (yesClicked) {
-      const timer = setTimeout(() => {
-        setShowLetter(true)
-      }, 100000)
-      return () => clearTimeout(timer)
-    }
-  }, [yesClicked])
+  // // Délai de 2 secondes après Yes
+  // useEffect(() => {
+  //   if (yesClicked) {
+  //     const timer = setTimeout(() => {
+  //       setShowLetter(true)
+  //     }, 100000)
+  //     return () => clearTimeout(timer)
+  //   }
+  // }, [yesClicked])
 
   const getRandomPosition = () => {
     const randomX = (Math.random() - 0.5) * 80
     const randomY = (Math.random() - 0.5) * 60
     return { x: randomX, y: randomY }
   }
+//   const heartsData = Array.from({ length: 30 }, () => ({
+//   left: Math.random() * 100,
+//   delay: Math.random() * 5,
+//   duration:20 + Math.random() * 20
+// }))
+
 
   const handleNoClick = () => {
     if (noCount < 4) {
@@ -112,19 +136,29 @@ Ma très chère Afaf,
       <div className="letter-container">
         {showHearts && (
           <div className="hearts-container">
-            {Array.from({ length: 10 }).map((_, i) => (
+            {   [
+  10, 35, 70,
+  14, 29,100,
+  5, 40, 95,
+  25, 80, 20,
+  15, 50, 90,
+  0, 65, 30
+].map((position, i) => (
               <div 
                 key={i}
                 className="falling-heart"
                 style={{
-                  left: Math.random() * 100 + '%',
-                  animationDelay: i * 0.3 + 's',
-                  animationDuration: (10 + Math.random() * 4) + 's'
+                  left: position + '%',
+                  // animationDelay: delai[i%10] + 's'
+                  animationDelay:4/ delai[i % delai.length] + 's'
+
                 }}
               >
                 <img src={`/yanis_sv/coeur-0${(i % 4) + 1}.png`} alt="heart" />
               </div>
             ))}
+
+
           </div>
         )}
         <div className="letter">

@@ -15,7 +15,6 @@ body {
   /* mette le background image */
   background: url('../public/background.png') no-repeat center center fixed;
   background-size: cover;
- 
   min-height: 100vh;
   width: 100%;
   overflow-x: hidden;
@@ -289,7 +288,10 @@ body {
   min-height: 100vh;
   width: 100vw;
   padding: 20px;
-  background: linear-gradient(135deg, #ffc0cb 0%, #ffb3d9 100%);
+  /* background: linear-gradient(135deg, #ffc0cb 0%, #ffb3d9 100%); */
+
+  background: url('../public/background.png') no-repeat center center fixed;
+  background-size: cover;
 }
 
 .letter {
@@ -373,7 +375,7 @@ body {
   pointer-events: none;
 }
 
-.falling-heart-1 {
+/* .falling-heart-1 {
   left: 10%;
   background-image: url('/yanis_sv/coeur-01.png');
   animation-delay: 0s;
@@ -401,15 +403,15 @@ body {
   left: 70%;
   background-image: url('/yanis_sv/coeur-01.png');
   animation-delay: 2s;
-}
+} */
 
 @keyframes fall {
   from {
-    top: -100px;
+    top: -200px;
     opacity: 1;
   }
   to {
-    top: 100vh;
+    top: 120vh;
     opacity: 0;
   }
 }
@@ -446,10 +448,10 @@ body {
 
 .falling-heart {
   position: absolute;
-  width: 50px;
-  height: 50px;
-  top: -50px;
-  animation: falling 12s linear forwards;
+  width: 100px;
+  height: 100px;
+  top: -150px;
+  animation: falling 15s linear forwards;
 }
 
 .falling-heart img {
@@ -460,15 +462,11 @@ body {
 
 @keyframes falling {
   0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(50vh) translateX(30px) rotate(180deg);
+    top: -90px;
     opacity: 1;
   }
   100% {
-    transform: translateY(100vh) translateX(0) rotate(360deg);
-    opacity: 0;
+    top: 100vh;
+    opacity: 0.7;
   }
 }
