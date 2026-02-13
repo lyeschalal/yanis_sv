@@ -22,7 +22,7 @@ function App() {
     { image: 'https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyMXVzYjBrbjJteW9kdnAwZXZ1YXBjNjl4bG9lMDZ4MnUxd3NkcXByMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XgB1iZOFFkUXbOhNXt/200w.gif', text: 'Are you sure' },
     { image: 'https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyMnB6YTZpNWR6MzA4ZWhyamQzZTgyejhoMmloODJmd2JvaWtscm9xcSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XD4qHZpkyUFfq/giphy.gif', text: 'Really !!' },
     { image: 'https://media.tenor.com/tqM1osvFOQoAAAAM/crying.gif', text: 'Think again' },
-    { image: 'https://media1.tenor.com/m/73WoNZZmig8AAAAd/emmanuel-macron.gif', text: 'Last chance' }
+    { image: 'https://media1.tenor.com/m/73WoNZZmig8AAAAd/emmanuel-macron.gif', text: '' }
   ]
 // const delai = [
 //   0, 1.8, 4.7,
@@ -70,7 +70,7 @@ Ton nisou préféré.,`
       } else {
         clearInterval(typeInterval)
       }
-    }, 150)
+    }, 100)
 
     return () => clearInterval(typeInterval)
   }, [showLetter])
@@ -164,7 +164,7 @@ Ton nisou préféré.,`
           <div className="heart-animation" onClick={handleEnvelopeClick}>
             <div
               style={{
-                width: 'auto',
+                width: '215px',
                 height: '150px',
                 margin: '0 auto',
                 cursor: 'pointer',
