@@ -19,10 +19,10 @@ function App() {
   ]
   
   const avatarData = [
-    { image: 'img1.png', text: 'Are you sure' },
-    { image: 'img2.png', text: 'Really !!' },
-    { image: 'img3.png', text: 'Think again' },
-    { image: 'img4.png', text: 'Last chance' }
+    { image: 'https://i.pinimg.com/originals/09/bf/2f/09bf2f1a849c2003677a5e56ac408f45.gif', text: 'Are you sure' },
+    { image: 'https://media.tenor.com/tqM1osvFOQoAAAAM/crying.gif', text: 'Really !!' },
+    { image: 'https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyMXVzYjBrbjJteW9kdnAwZXZ1YXBjNjl4bG9lMDZ4MnUxd3NkcXByMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XgB1iZOFFkUXbOhNXt/200w.gif', text: 'Think again' },
+    { image: 'https://i.pinimg.com/originals/09/bf/2f/09bf2f1a849c2003677a5e56ac408f45.gif', text: 'Last chance' }
   ]
 // const delai = [
 //   0, 1.8, 4.7,
@@ -234,7 +234,7 @@ Ma très chère Afaf,
         {noCount > 0 && (
           <div className={`avatar-container`}>
             <img
-              src={`/yanis_sv/${avatarData[noCount - 1].image}`}
+              src={`${avatarData[noCount - 1].image}`}
               alt="avatar"
               className="avatar-image"
             />
