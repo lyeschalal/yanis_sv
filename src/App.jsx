@@ -205,7 +205,7 @@ Ma très chère Afaf,
     <div className="valentine-container">
       <div className="valentine-card">
         <div className="heart-emoji">
-          <img className="heart-image" src="public/heart.png" alt="heart" />
+          <img className="heart-image" src="/yanis_sv/heart.png" alt="heart" />
         </div>
         <h1>Afaf will you be my valentine?</h1>
 
