@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import * as Clarity from '@microsoft/react-native-clarity';
 
-Clarity.initialize('vgz3arsvy4', {
-  logLevel: Clarity.LogLevel.None, // Note: Use "LogLevel.Verbose" value while testing to debug initialization issues.
-});
+
+
 
 function App() {
   const [yesClicked, setYesClicked] = useState(false)
